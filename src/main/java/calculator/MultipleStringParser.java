@@ -2,17 +2,18 @@ package calculator;
 
 import java.util.Arrays;
 
-public class MultipleNumberParser implements NumberParser {
+public class MultipleStringParser implements StringParser {
 
   private final String number;
 
-  public MultipleNumberParser(final String number) {
+  public MultipleStringParser(final String number) {
     this.number = number;
   }
 
-  public int add() {
+  public int[] parse() {
     return Arrays.stream(this.number.split(","))
         .mapToInt(Integer::parseInt)
-        .sum();
+        .toArray();
   }
+
 }
